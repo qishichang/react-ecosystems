@@ -8,6 +8,7 @@ import {
 import NewTodoForm from './NewTodoForm';
 import TodoListItem from './TodoListItem';
 import './TodoList.css';
+import { getTodos, getTodosLoading } from './selectors';
 
 const TodoList = ({
   todos = [{ text: 'Hello' }],
@@ -36,8 +37,8 @@ const TodoList = ({
 };
 
 const mapStateToProps = (state) => ({
-  todos: state.todos,
-  isLoading: state.isLoading,
+  todos: getTodos(state),
+  isLoading: getTodosLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
